@@ -1,13 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
-import App from './App';
+import Cutoff from './Cutoff';
+import Num from './Num';
+import Text from './Text';
+// import Login from './Login';
 import reportWebVitals from './reportWebVitals';
-
+import{
+  BrowserRouter,
+  Routes,
+  Route
+}from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <div className='gig'>
+      <Login />
+    </div> */}
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Text />} />
+      <Route path='/numeric' element = {<Num />} />
+      <Route path='/cutoff' element = {<Cutoff />} />
+    </Routes>
+    </BrowserRouter>
+    
   </React.StrictMode>
 );
 
