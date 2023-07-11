@@ -2,19 +2,89 @@ body{
     background-image: linear-gradient(120deg,#000428,#004e92);
     background-attachment: fixed;
 }
-.tot{
-   
+@media (max-width:978px){
+    *{
+        margin-left:0px;
+        margin-right:0px;
+    }
 }
-.bin{
-    padding: 20px;
-    border: 4px solid red;
-}
-h3{
+*{
     color: white;
-    font-family:Tahoma;
 }
-label{
-    color: aliceblue;
-    font-family: Verdana;
-    font-size:x-large;
+select{
+    color:#000428
+}
+select option{
+    color: #000428;
+}
+.selectclass{
+    background-image: linear-gradient(120deg,#8081f5,#0d74fa);
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    padding: 5px;
+}
+.options{
+    display: flex;
+    justify-content: center;
+}
+option{
+    background-color: rgb(36, 196, 196);
+    border-radius: 10px;
+}
+.inputbox{
+    margin-left: 25%;
+    margin-right: 25%;
+}
+@media (max-width:978px) {
+    .inputbox{
+    margin-left: 15%;
+    margin-right: 15%;
+    }
+}
+.content1{
+    border: 2px solid silver;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 4%;
+}
+.app{
+    border: 2px solid silver;
+    margin-left: 10%;
+    margin-right: 10%;
+    /* padding: 4%; */
+}
+.resultnum{
+    background-color: #5ffc40;
+    border-radius: 5px;
+    border: 2px solid rgb(29, 182, 253);
+    padding: 5px;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+.container{
+    margin-top: 30px;
+    padding-left: 18%;
+    padding-right:18%;
+    margin-bottom: 30px;
+
+}
+@media (max-width:978px){
+    .container{
+        padding-left:30px;
+        padding-right: 30px;
+    }
+}
+.textbox{
+    border-radius: 10px;
+    padding: 8px;
+    background-color: #5ffc40;
+    padding-left: 70px;
+}
+@media (max-width:978px){
+
+    .textbox{
+        border-radius: 10px;
+        padding: 8px;
+        background-color: #5ffc40;
+    }
 }

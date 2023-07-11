@@ -1,83 +1,100 @@
 import React from "react";
 import { useState } from "react";
-import { Button } from 'react-bootstrap';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import './Nums.css';
 function Num()
 {
-    const[dec,decimal1] = useState(0);
-    const[oct,octal1] = useState(0);
-    const[hex,hexa1] = useState(0);
-    const[bi,decbin] = useState(0);
-    const[oc,decoct] = useState(0);
-    const[hx,dechex] = useState(0);
-    const[con,cont] = useState("");
-    const[con1,cont1] = useState("");
-    const[con2,cont2] = useState("");
-    const[var1,vari1] = useState("");
-    const[var2,vari2] = useState("");
-    const[var3,vari3] = useState("");
-    
-    const decimal=(e)=>{
-        var bin = parseInt(dec);
-        var con1= bin.toString(2);
-        cont(con1)
+   
+    const[number,setNumber] = useState("");
+    const[converstion,setCon] = useState("");
+    // const[button,setButton] = useState("");
+    const[result ,setResult] = useState("");
+    const Settext = (e)=>{
+        setResult("")
+        setNumber("")
+        setCon(e.target.value)
     }
-    const octal=(e)=>{
-        var o = parseInt(oct);
-        var c = o.toString(8);
-        cont1(c);
-    }
-    const hexa=(e)=>{
-        var h = parseInt(hex);
-        var r = h.toString(16);
-        cont2(r);
-    }
-    const binary=(e)=>{
-        var b = parseInt(bi,2);
-        vari1(b);
-    }
-    const decimaloct=(e)=>{
-        var o = parseInt(oc,8);
-        vari2(o);
+    function Main(e){
+        e.preventDefault()
+        const decimal=(e)=>{
+            var bin = parseInt(number);
+            if(isNaN(bin)) setResult("Enter valid Number")
+            else{
+            var con1= bin.toString(2);
+            setResult(con1)
+            }
+        }
+        const octal=(e)=>{
+            var o = parseInt(number);
+            if(isNaN(o)) setResult("Enter valid Number")
+            else{
+            var c = o.toString(8);
+            setResult(c);
+            }
+        }
+        const hexa=(e)=>{
+            var h = parseInt(number);
+            if(isNaN(h)) setResult("Enter valid Number")
+            else {
+            var r = h.toString(16);
+            setResult(r);
+            }
+        }
+        const binary=(e)=>{
+            var b = parseInt(number,2);
+            if(isNaN(b)) setResult("Enter valid Number")
+            else
+            setResult(b);
+        }
+        const decimaloct=(e)=>{
+
+            var o = parseInt(number,8);
+            if(isNaN(o)) setResult("Warning value is "+number+" should be lesser for octal")
+            else
+            setResult(o);
+            
+        }
+        const decmialhexa=(e)=>{
+            var h = parseInt(number,16);
+            setResult(h);
+        }
+       if(converstion === "Decimal to binary") decimal()
+       else if(converstion === "Decimal to octal") octal()
+       else if(converstion === "Decimal to hexadecimal") hexa()
+       else if(converstion === "Binary to decimal") binary()
+       else if(converstion === "Octal to decimal") decimaloct()
+       else if(converstion === "Hexadecimal to decimal") decmialhexa()
+       else console.log("Somethin Wrong")
         
-    }
-    const decmialhexa=(e)=>{
-        var h = parseInt(hx,16);
-        vari3(h);
-    }
-    const reset=()=>{
-        decimal1(" ");
-        octal1(" ");
-        hexa1(" ");
-        decbin(" ");
-        decoct(" ");
-        dechex(" ");
-        cont(" ");
-        cont1(" ");
-        cont2(" ");
-        vari1(" ");
-        vari2(" ");
-        vari3(" ");
+        
+
     }
     return(
         <>
-            <Navbar bg="info" variant="info" expand="md">
-                <Container>
-                    <Navbar.Brand href="#home">SK's Calc</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" /> 
-                    <Navbar.Collapse>   
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="/">DecodeMsg</Nav.Link>
-                        <Nav.Link href="/numeric">NumberSystemCalculator</Nav.Link>
-                    </Nav>
-                    </Navbar.Collapse> 
-                </Container>
-            </Navbar>
-            <div className="tot">
+            <br />
+            <div className="content1">
+            <center><h3>NumberSystem Calculator</h3></center> <br />
+            <div className="options">
+                <select name="calculator" className="selectclass" onChange={Settext}>
+                    <option value="Select Number Coverstion">Select Number Conversion</option>
+                    <option value="Decimal to binary">Decimal to binary</option>
+                    <option value="Decimal to octal">Decimal to octal</option>
+                    <option value="Decimal to hexadecimal">Decimal to hexadecimal</option>
+                    <option value="Binary to decimal">Binary to decimal</option>
+                    <option value="Octal to decimal">Octal to decimal</option>
+                    <option value="Hexadecimal to decimal">Hexadecimal to decimal</option>
+                </select>
+            </div>
+            <br />
+            <div className="formcontent">
+                <form>
+                    <div className="inputbox"><input value={number} type="text" onChange={(e)=> setNumber(e.target.value)} className="form-control number" placeholder="Enter the Number"/></div>
+                    <br />
+                    <center><button className="btn btn-info" onClick={(e)=> Main(e)}>Submit</button></center> <br />
+                    <div className="resultnum"><h5 style={{color:"black"}}>{result}</h5></div>
+                </form>
+            </div>
+            </div>
+            {/* <div className="tot">
                 <div className="container-md">
                     <div className="row">
                         <div className="col-md 6 col-sm-12">
@@ -143,7 +160,7 @@ function Num()
                     </div>
                     <center><button className="btn btn-success" onClick={reset}>Reset</button></center>
                 </div>
-            </div>
+            </div> */}
         </>
     );
 }
