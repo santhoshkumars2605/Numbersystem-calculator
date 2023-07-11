@@ -49,7 +49,7 @@ function Text()
         <>
         <div className="app">
             <div className="container">
-                <center><h3>Decode your message</h3></center><br />
+                <center><h3>Encode your message</h3></center><br />
                 <input type= "text" placeholder="Enter the Text" className="form-control" onChange={(e)=>name(e.target.value)}></input><br></br>
                 <div class="d-grid gap-2 col-6 mx-auto"><button className="btn btn-info" onClick={decode}>Encode</button></div><br></br>
                 <input type="text" className="form-control" value={resl} placeholder = "Ascii value"></input><br></br>
