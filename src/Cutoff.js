@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-
+import './Nums.css'
 function Cutoff()
 {
     const [maths,mathmark] = useState(0);

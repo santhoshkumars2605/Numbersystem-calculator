@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './Text.css';
+import './Nums.css';
 // import {Nav, Navbar, Container, NavDropdown} from 'react-bootstrap';  
 function Text()
 {
